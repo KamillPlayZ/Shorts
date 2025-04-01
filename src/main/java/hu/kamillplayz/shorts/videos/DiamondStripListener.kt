@@ -20,6 +20,9 @@ class DiamondStripListener : Listener {
         val block: Block = event.clickedBlock!!
         if (block.type != Material.DEEPSLATE_DIAMOND_ORE) return
 
+        val item = event.item
+        if (item?.type != Material.GOLDEN_PICKAXE) return
+
         block.type = Material.DIAMOND_ORE
     }
 

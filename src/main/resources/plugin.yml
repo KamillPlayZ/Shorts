@@ -3,4 +3,4 @@ version: ${project.version}
 main: ${main.class}
 authors: [ KamillPlayZ ]
 api-version: 1.21.1
-softdepend: [ ItemsAdder, ProtocolLib]
+softdepend: [ ItemsAdder, ProtocolLib ]

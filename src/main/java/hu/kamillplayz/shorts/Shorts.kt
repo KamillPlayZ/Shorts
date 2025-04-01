@@ -3,6 +3,7 @@ package hu.kamillplayz.shorts
 import hu.kamillplayz.shorts.data.ConfigJson
 import hu.kamillplayz.shorts.utils.JsonLoader
 import hu.kamillplayz.shorts.videos.DiamondStripListener
+import hu.kamillplayz.shorts.videos.StriderBookListener
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 
@@ -21,16 +22,18 @@ class Shorts : JavaPlugin() {
     private lateinit var config: ConfigJson
 
     init {
-        instance = this  // This will work with @JvmStatic
+        instance = this
     }
 
     override fun onEnable() {
         config = JsonLoader.loadOrDefault(dataFolder, "config.json", ConfigJson::class.java)
 
         if (config.isDiamondStrip) Bukkit.getPluginManager().registerEvents(DiamondStripListener(), this)
+        if (config.isStriderBook) Bukkit.getPluginManager().registerEvents(StriderBookListener(), this)
+
     }
 
     override fun onDisable() {
-
     }
+
 }

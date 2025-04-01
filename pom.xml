@@ -37,12 +37,12 @@
             <version>1.21.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>eu.balkercraft</groupId>
-            <artifactId>drink</artifactId>
-            <version>1.0.5</version>
-            <scope>compile</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>eu.balkercraft</groupId>-->
+<!--            <artifactId>drink</artifactId>-->
+<!--            <version>1.0.5</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.github.LoneDev6</groupId>
             <artifactId>api-itemsadder</artifactId>
