@@ -4,6 +4,7 @@ import hu.kamillplayz.shorts.data.ConfigJson
 import hu.kamillplayz.shorts.utils.JsonLoader
 import hu.kamillplayz.shorts.videos.CauldronWaterListener
 import hu.kamillplayz.shorts.videos.DiamondStripListener
+import hu.kamillplayz.shorts.videos.RedstoneDyeListener
 import hu.kamillplayz.shorts.videos.StriderBookListener
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
@@ -32,6 +33,7 @@ class Shorts : JavaPlugin() {
         if (config.isDiamondStrip) Bukkit.getPluginManager().registerEvents(DiamondStripListener(), this)
         if (config.isStriderBook) Bukkit.getPluginManager().registerEvents(StriderBookListener(), this)
         if (config.isCauldronWater) Bukkit.getPluginManager().registerEvents(CauldronWaterListener(), this)
+        if (config.isRedstoneDye) Bukkit.getPluginManager().registerEvents(RedstoneDyeListener(), this)
     }
 
     override fun onDisable() {

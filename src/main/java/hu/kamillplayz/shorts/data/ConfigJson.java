@@ -5,6 +5,7 @@ public class ConfigJson {
     private boolean diamondStrip = true;
     private boolean striderBook = true;
     private boolean cauldronWater = true;
+    private boolean redstoneDye = true;
 
     public boolean isDiamondStrip() {
         return diamondStrip;
@@ -16,5 +17,9 @@ public class ConfigJson {
 
     public boolean isCauldronWater() {
         return cauldronWater;
+    }
+
+    public boolean isRedstoneDye() {
+        return redstoneDye;
     }
 }
