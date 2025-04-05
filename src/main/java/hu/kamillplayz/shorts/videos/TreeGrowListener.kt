@@ -14,10 +14,14 @@ class TreeGrowListener : Listener {
     fun onTreeGrow(event: PlayerToggleSneakEvent) {
         if (!event.player.isSneaking) return
 
+        val blockX = event.player.location.blockX
+        val blockY = event.player.location.blockY
+        val blockZ = event.player.location.blockZ
+
         for (x in -5..5) {
             for (y in -5..5) {
                 for (z in -5..5) {
-                    val block = event.player.world.getBlockAt(event.player.location.blockX + x, event.player.location.blockY + y, event.player.location.blockZ + z)
+                    val block = event.player.world.getBlockAt(blockX + x, blockY + y, blockZ + z)
                     if (block.type == Material.AIR) continue
 
                     if (!block.type.toString().contains("_SAPLING")) continue
