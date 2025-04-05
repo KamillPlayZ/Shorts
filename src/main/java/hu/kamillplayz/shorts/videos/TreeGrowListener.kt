@@ -25,7 +25,7 @@ class TreeGrowListener : Listener {
                     if (block.type == Material.AIR) continue
 
                     if (!block.type.toString().contains("_SAPLING")) continue
-                    if (Math.random() > 0.5) continue
+                    if (Math.random() > 0.3) continue
 
                     val location = block.location.toCenterLocation()
 
@@ -37,7 +37,7 @@ class TreeGrowListener : Listener {
                     }
                     event.player.playSound(location, Sound.ITEM_BONE_MEAL_USE, 1f, 1f)
 
-                    if (Math.random() > 0.25) continue
+                    if (Math.random() > 0.2) continue
 
                     val treeType = getTreeType(block.type)
                     block.type = Material.AIR
