@@ -7,6 +7,7 @@ public class ConfigJson {
     private boolean cauldronWater = true;
     private boolean redstoneDye = true;
     private boolean treeGrow = true;
+    private boolean diamondEat = true;
 
     public boolean isDiamondStrip() {
         return diamondStrip;
@@ -26,5 +27,9 @@ public class ConfigJson {
 
     public boolean isTreeGrow() {
         return treeGrow;
+    }
+
+    public boolean isDiamondEat() {
+        return diamondEat;
     }
 }
