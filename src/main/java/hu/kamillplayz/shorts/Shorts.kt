@@ -33,6 +33,7 @@ class Shorts : JavaPlugin() {
         if (config.isRedstoneDye) Bukkit.getPluginManager().registerEvents(RedstoneDyeListener(), this)
         if (config.isTreeGrow) Bukkit.getPluginManager().registerEvents(TreeGrowListener(), this)
         if (config.isDiamondEat) Bukkit.getPluginManager().registerEvents(DiamondEatListener(), this)
+        if (config.isBedrockGrow) Bukkit.getPluginManager().registerEvents(BedrockGrowListener(), this)
     }
 
     override fun onDisable() {

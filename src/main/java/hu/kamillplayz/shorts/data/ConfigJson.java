@@ -8,6 +8,11 @@ public class ConfigJson {
     private boolean redstoneDye = true;
     private boolean treeGrow = true;
     private boolean diamondEat = true;
+    private boolean bedrockGrow = true;
+
+    public boolean isBedrockGrow() {
+        return bedrockGrow;
+    }
 
     public boolean isDiamondStrip() {
         return diamondStrip;
