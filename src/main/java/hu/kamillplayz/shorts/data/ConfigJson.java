@@ -9,6 +9,11 @@ public class ConfigJson {
     private boolean treeGrow = true;
     private boolean diamondEat = true;
     private boolean bedrockGrow = true;
+    private boolean mobEgg = true;
+
+    public boolean isMobEgg() {
+        return mobEgg;
+    }
 
     public boolean isBedrockGrow() {
         return bedrockGrow;
