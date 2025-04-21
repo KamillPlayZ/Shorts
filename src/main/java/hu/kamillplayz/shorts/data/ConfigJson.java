@@ -10,6 +10,11 @@ public class ConfigJson {
     private boolean diamondEat = true;
     private boolean bedrockGrow = true;
     private boolean mobEgg = true;
+    private boolean rename = true;
+
+    public boolean isRename() {
+        return rename;
+    }
 
     public boolean isMobEgg() {
         return mobEgg;
