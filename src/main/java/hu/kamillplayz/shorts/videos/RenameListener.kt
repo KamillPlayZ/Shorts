@@ -2,7 +2,6 @@ package hu.kamillplayz.shorts.videos
 
 import io.papermc.paper.event.player.PlayerNameEntityEvent
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer
-import org.bukkit.Bukkit
 import org.bukkit.Particle
 import org.bukkit.Sound
 import org.bukkit.entity.Ageable

@@ -36,6 +36,7 @@ class Shorts : JavaPlugin() {
         if (config.isBedrockGrow) Bukkit.getPluginManager().registerEvents(BedrockGrowListener(), this)
         if (config.isMobEgg) Bukkit.getPluginManager().registerEvents(MobEggListener(), this)
         if (config.isRename) Bukkit.getPluginManager().registerEvents(RenameListener(), this)
+        if (config.isGymAnimals) Bukkit.getPluginManager().registerEvents(GymAnimalsListener(), this)
     }
 
     override fun onDisable() {

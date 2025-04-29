@@ -11,6 +11,11 @@ public class ConfigJson {
     private boolean bedrockGrow = true;
     private boolean mobEgg = true;
     private boolean rename = true;
+    private boolean gymAnimals = true;
+
+    public boolean isGymAnimals() {
+        return gymAnimals;
+    }
 
     public boolean isRename() {
         return rename;
