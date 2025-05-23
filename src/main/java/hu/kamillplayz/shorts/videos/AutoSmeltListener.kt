@@ -4,6 +4,8 @@ import hu.kamillplayz.shorts.Shorts
 import org.bukkit.*
 import org.bukkit.block.Block
 import org.bukkit.block.BlockFace
+import org.bukkit.entity.EntityType
+import org.bukkit.entity.ExperienceOrb
 import org.bukkit.entity.Item
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -14,6 +16,7 @@ import org.bukkit.inventory.FurnaceRecipe
 import org.bukkit.inventory.ItemStack
 import org.bukkit.scheduler.BukkitRunnable
 import kotlin.math.abs
+import kotlin.math.ceil
 import kotlin.math.max
 
 class AutoSmeltListener : Listener {
@@ -22,8 +25,6 @@ class AutoSmeltListener : Listener {
 
     @EventHandler
     fun onBreak(event: BlockBreakEvent) {
-        val blockType = event.block.type
-
         val player = event.player
         val item = player.inventory.itemInMainHand
         val lore = item.itemMeta.lore ?: return
@@ -31,9 +32,18 @@ class AutoSmeltListener : Listener {
         if (!lore.contains("§7Égetés I")) return
 
         var smeltedItem: ItemStack? = null
-        for (recipe in Bukkit.getRecipesFor(blockType.asItemStack)) {
+        var xp = 0
+
+        val iterator = Bukkit.recipeIterator()
+        while (iterator.hasNext()) {
+            val recipe = iterator.next()
             if (recipe !is FurnaceRecipe) continue
+
+            if (recipe.input.type != event.block.type) continue
+
+            xp = ceil(recipe.experience).toInt()
             smeltedItem = recipe.result
+
             break
         }
 
@@ -41,6 +51,8 @@ class AutoSmeltListener : Listener {
 
         event.isDropItems = false
         event.block.world.dropItem(event.block.location, smeltedItem)
+        val orb = event.block.world.spawnEntity(event.block.location, EntityType.EXPERIENCE_ORB) as ExperienceOrb
+        orb.experience = xp
 
         player.playSound(event.block.location, Sound.BLOCK_LAVA_EXTINGUISH, 1f, 1f)
         event.block.world.spawnParticle(Particle.FLAME, event.block.location, 10, 0.0, 0.0, 0.0, 0.0)
