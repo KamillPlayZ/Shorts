@@ -39,7 +39,7 @@ class AutoSmeltListener : Listener {
             val recipe = iterator.next()
             if (recipe !is FurnaceRecipe) continue
 
-            if (recipe.input.type != event.block.type) continue
+            if (!recipe.inputChoice.test(event.block.type.asItemStack)) continue
 
             xp = ceil(recipe.experience).toInt()
             smeltedItem = recipe.result
