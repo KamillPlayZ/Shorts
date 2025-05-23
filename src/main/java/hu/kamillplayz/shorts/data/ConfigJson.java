@@ -12,6 +12,11 @@ public class ConfigJson {
     private boolean mobEgg = true;
     private boolean rename = true;
     private boolean gymAnimals = true;
+    private boolean autoSmelt = true;
+
+    public boolean isAutoSmelt() {
+        return autoSmelt;
+    }
 
     public boolean isGymAnimals() {
         return gymAnimals;
