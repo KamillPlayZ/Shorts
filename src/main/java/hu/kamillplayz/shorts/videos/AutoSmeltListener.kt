@@ -203,6 +203,7 @@ class AutoSmeltListener : Listener {
 
                 val newStack = ItemStack(Material.DIAMOND_PICKAXE)
                 newStack.editMeta {
+                    it.setDisplayName("§dHot Csákány :3")
                     it.lore = listOf("§7Égetés I")
                 }
                 val newItem = item1.world.dropItem(midpoint, newStack)
