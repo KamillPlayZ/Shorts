@@ -27,8 +27,9 @@ class AutoSmeltListener : Listener {
     fun onBreak(event: BlockBreakEvent) {
         val player = event.player
         val item = player.inventory.itemInMainHand
-        val lore = item.itemMeta.lore ?: return
+        if (!item.itemMeta.hasLore()) return
 
+        val lore = item.itemMeta.lore ?: return
         if (!lore.contains("§7Égetés I")) return
 
         var smeltedItem: ItemStack? = null
