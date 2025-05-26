@@ -38,6 +38,7 @@ class Shorts : JavaPlugin() {
         if (config.isRename) Bukkit.getPluginManager().registerEvents(RenameListener(), this)
         if (config.isGymAnimals) Bukkit.getPluginManager().registerEvents(GymAnimalsListener(), this)
         if (config.isAutoSmelt) Bukkit.getPluginManager().registerEvents(AutoSmeltListener(), this)
+        if (config.isCopperToDiamond) Bukkit.getPluginManager().registerEvents(CopperToDiamond(), this)
     }
 
     override fun onDisable() {

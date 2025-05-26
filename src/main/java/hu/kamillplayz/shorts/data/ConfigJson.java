@@ -13,6 +13,11 @@ public class ConfigJson {
     private boolean rename = true;
     private boolean gymAnimals = true;
     private boolean autoSmelt = true;
+    private boolean copperToDiamond = true;
+
+    public boolean isCopperToDiamond() {
+        return copperToDiamond;
+    }
 
     public boolean isAutoSmelt() {
         return autoSmelt;
