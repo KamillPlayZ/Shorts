@@ -14,6 +14,16 @@ public class ConfigJson {
     private boolean gymAnimals = true;
     private boolean autoSmelt = true;
     private boolean copperToDiamond = true;
+    private boolean crystalSkeleton = true;
+    private boolean bedrockBurn = true;
+
+    public boolean isBedrockBurn() {
+        return bedrockBurn;
+    }
+
+    public boolean isCrystalSkeleton() {
+        return crystalSkeleton;
+    }
 
     public boolean isCopperToDiamond() {
         return copperToDiamond;
