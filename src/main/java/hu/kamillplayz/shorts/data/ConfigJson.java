@@ -16,6 +16,16 @@ public class ConfigJson {
     private boolean copperToDiamond = true;
     private boolean crystalSkeleton = true;
     private boolean bedrockBurn = true;
+    private boolean skeletonHorse = true;
+    private boolean lichen = true;
+
+    public boolean isLichen() {
+        return lichen;
+    }
+
+    public boolean isSkeletonHorse() {
+        return skeletonHorse;
+    }
 
     public boolean isBedrockBurn() {
         return bedrockBurn;

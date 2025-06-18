@@ -41,6 +41,8 @@ class Shorts : JavaPlugin() {
         if (config.isCopperToDiamond) Bukkit.getPluginManager().registerEvents(CopperToDiamond(), this)
         if (config.isCrystalSkeleton) Bukkit.getPluginManager().registerEvents(CrystalSkeletonListener(), this)
         if (config.isBedrockBurn) Bukkit.getPluginManager().registerEvents(BedrockBurnListener(), this)
+        if (config.isSkeletonHorse) Bukkit.getPluginManager().registerEvents(SkeletonHorse(), this)
+        if (config.isLichen) Bukkit.getPluginManager().registerEvents(LichenListener(), this)
     }
 
     override fun onDisable() {
