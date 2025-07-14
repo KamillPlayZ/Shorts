@@ -40,7 +40,6 @@ class RedstoneDyeListener : Listener {
         val world = block.world
         val loc = block.location
 
-        // Get the coordinates of the block
         val x = loc.blockX.toDouble()
         val y = loc.blockY.toDouble()
         val z = loc.blockZ.toDouble()
@@ -49,26 +48,22 @@ class RedstoneDyeListener : Listener {
         val secondaryColor = Color.fromRGB(95, 155, 228)
         val dustTransition = DustTransition(primaryColor, secondaryColor, 1.0f)
 
-        // Number of particles per edge
         val particlesPerEdge = 5
 
-        // Display particles on all 12 edges of the block
         for (i in 0..particlesPerEdge) {
             val progress = i.toDouble() / particlesPerEdge
 
-            // Bottom edges (y)
             world.spawnParticle(Particle.DUST_COLOR_TRANSITION, x + progress, y, z, 1, 0.0, 0.0, 0.0, 0.0, dustTransition)
             world.spawnParticle(Particle.DUST_COLOR_TRANSITION, x + progress, y, z + 1, 1, 0.0, 0.0, 0.0, 0.0, dustTransition)
             world.spawnParticle(Particle.DUST_COLOR_TRANSITION, x, y, z + progress, 1, 0.0, 0.0, 0.0, 0.0, dustTransition)
             world.spawnParticle(Particle.DUST_COLOR_TRANSITION, x + 1, y, z + progress, 1, 0.0, 0.0, 0.0, 0.0, dustTransition)
 
-            // Top edges (y + 1)
             world.spawnParticle(Particle.DUST_COLOR_TRANSITION, x + progress, y + 1, z, 1, 0.0, 0.0, 0.0, 0.0, dustTransition)
             world.spawnParticle(Particle.DUST_COLOR_TRANSITION, x + progress, y + 1, z + 1, 1, 0.0, 0.0, 0.0, 0.0, dustTransition)
             world.spawnParticle(Particle.DUST_COLOR_TRANSITION, x, y + 1, z + progress, 1, 0.0, 0.0, 0.0, 0.0, dustTransition)
             world.spawnParticle(Particle.DUST_COLOR_TRANSITION, x + 1, y + 1, z + progress, 1, 0.0, 0.0, 0.0, 0.0, dustTransition)
 
-            // Vertical edges
+            //  edges
             world.spawnParticle(Particle.DUST_COLOR_TRANSITION, x, y + progress, z, 1, 0.0, 0.0, 0.0, 0.0, dustTransition)
             world.spawnParticle(Particle.DUST_COLOR_TRANSITION, x + 1, y + progress, z, 1, 0.0, 0.0, 0.0, 0.0, dustTransition)
             world.spawnParticle(Particle.DUST_COLOR_TRANSITION, x, y + progress, z + 1, 1, 0.0, 0.0, 0.0, 0.0, dustTransition)

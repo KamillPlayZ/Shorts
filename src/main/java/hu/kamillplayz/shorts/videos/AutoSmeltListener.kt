@@ -59,8 +59,6 @@ class AutoSmeltListener : Listener {
         event.block.world.spawnParticle(Particle.FLAME, event.block.location, 10, 0.0, 0.0, 0.0, 0.0)
     }
 
-    // ===== PISTON ITEM COMBINATION SYSTEM =====
-
     @EventHandler
     fun onPistonExtend(event: BlockPistonExtendEvent) {
         if (event.isCancelled) return
@@ -78,10 +76,8 @@ class AutoSmeltListener : Listener {
     }
 
     private fun handlePistonMovement(pistonLocation: Location, affectedBlocks: List<Block>, direction: BlockFace) {
-        // Store initial item positions
         val nearbyItems = mutableListOf<ItemData>()
 
-        // Find all items in the affected area (expanded to catch items that might be pushed)
         val searchCenter = pistonLocation.clone()
         val searchRadius = max(affectedBlocks.size + 2, 5).toDouble() // Dynamic radius based on piston reach
 
@@ -89,7 +85,6 @@ class AutoSmeltListener : Listener {
             nearbyItems.add(ItemData(item, item.location.clone()))
         }
 
-        // Check after piston movement completes (1 tick delay)
         object : BukkitRunnable() {
             override fun run() {
                 checkItemProximity(nearbyItems, pistonLocation, direction)
@@ -102,7 +97,6 @@ class AutoSmeltListener : Listener {
             .filter { it.item.isValid && !it.item.isDead }
             .map { it.item }
 
-        // Check each item against every other item
         for (i in currentItems.indices) {
             val item1 = currentItems[i]
             val loc1 = item1.location
@@ -113,14 +107,11 @@ class AutoSmeltListener : Listener {
 
                 val distance = loc1.distance(loc2)
 
-                // Check if items are close (within 1.5 blocks)
                 if (distance <= EffectConfig.combineDistance) {
-                    // Check if one item is on top of another (Y difference)
                     val yDifference = abs(loc1.y - loc2.y)
 
                     when {
                         yDifference <= 0.5 -> {
-                            // Items are approximately on the same level
                             onItemsMovedNearEachOther(item1, item2)
                         }
                     }
@@ -140,17 +131,12 @@ class AutoSmeltListener : Listener {
         }
     }
 
-    /**
-     * Creates a spectacular combine effect when two compatible items are near each other
-     */
     private fun createCombineEffect(item1: Item, item2: Item) {
         val midpoint = item1.location.clone().add(item2.location).multiply(0.5)
         val world = midpoint.world
 
-        // Create a massive particle explosion with multiple layers
         for (i in 0..5) {
             plugin.server.scheduler.runTaskLater(plugin, Runnable {
-                // Expanding ring of particles
                 val radius = i * 0.5
                 for (angle in 0..360 step 15) {
                     val radians = Math.toRadians(angle.toDouble())
@@ -175,7 +161,6 @@ class AutoSmeltListener : Listener {
                     )
                 }
 
-                // Lightning effect on the final ring
                 if (i == 5) {
                     world.strikeLightningEffect(midpoint)
                     world.playSound(
@@ -189,7 +174,6 @@ class AutoSmeltListener : Listener {
             }, (i * 3).toLong())
         }
 
-        // Play epic sound sequence
         world.playSound(midpoint, Sound.ENTITY_ENDER_DRAGON_GROWL, SoundCategory.BLOCKS, 1.5f * EffectConfig.soundVolume, 1.2f)
 
         plugin.server.scheduler.runTaskLater(plugin, Runnable {
@@ -199,9 +183,6 @@ class AutoSmeltListener : Listener {
         return
     }
 
-    /**
-     * Combines two compatible items into one
-     */
     private fun combineItems(item1: Item, item2: Item) {
         if (!item1.canCombineWith(item2)) return
 
@@ -210,7 +191,6 @@ class AutoSmeltListener : Listener {
         item1.remove()
         item2.remove()
 
-        // Remove original items with a delay for effect
         object : BukkitRunnable() {
             override fun run() {
 
@@ -221,10 +201,8 @@ class AutoSmeltListener : Listener {
                 }
                 val newItem = item1.world.dropItem(midpoint, newStack)
 
-                // Add glowing effect to the new item
                 newItem.isGlowing = true
 
-                // Remove glow after 3 seconds
                 object : BukkitRunnable() {
                     override fun run() {
                         if (newItem.isValid) {
@@ -233,7 +211,6 @@ class AutoSmeltListener : Listener {
                     }
                 }.runTaskLater(plugin, 60L)
 
-                // Final celebration effect
                 newItem.world.spawnParticle(
                     Particle.TOTEM_OF_UNDYING,
                     newItem.location,
@@ -242,26 +219,23 @@ class AutoSmeltListener : Listener {
                     0.1
                 )
             }
-        }.runTaskLater(plugin, 12L) // Slight delay for effect timing
+        }.runTaskLater(plugin, 12L)
     }
 }
 
-// Data class to store item information
 data class ItemData(
     val item: Item,
     val originalLocation: Location
 )
 
-// Extension functions for item compatibility
 fun Item.canCombineWith(other: Item): Boolean {
     return EffectConfig.isCombination(this, other)
 }
 
-// Configuration object for customizing effects
 object EffectConfig {
-    var effectIntensity = 1.0 // Multiplier for particle counts
+    var effectIntensity = 1.0
     var soundVolume = 1.0f
-    var combineDistance = 1.5 // Maximum distance for combining
+    var combineDistance = 1.5
 
     val itemCombinations = setOf(
         setOf("FURNACE", "IRON_PICKAXE")

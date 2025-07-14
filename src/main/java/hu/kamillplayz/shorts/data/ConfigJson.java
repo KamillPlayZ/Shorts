@@ -18,6 +18,16 @@ public class ConfigJson {
     private boolean bedrockBurn = true;
     private boolean skeletonHorse = true;
     private boolean lichen = true;
+    private boolean poisonedSleep = true;
+    private boolean randomMob = true;
+
+    public boolean isRandomMob() {
+        return randomMob;
+    }
+
+    public boolean isPoisonedSleep() {
+        return poisonedSleep;
+    }
 
     public boolean isLichen() {
         return lichen;

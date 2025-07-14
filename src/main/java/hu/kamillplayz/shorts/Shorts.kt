@@ -43,6 +43,8 @@ class Shorts : JavaPlugin() {
         if (config.isBedrockBurn) Bukkit.getPluginManager().registerEvents(BedrockBurnListener(), this)
         if (config.isSkeletonHorse) Bukkit.getPluginManager().registerEvents(SkeletonHorse(), this)
         if (config.isLichen) Bukkit.getPluginManager().registerEvents(LichenListener(), this)
+        if (config.isPoisonedSleep) Bukkit.getPluginManager().registerEvents(PoisonedSleepListener(), this)
+        if (config.isRandomMob) Bukkit.getPluginManager().registerEvents(RandomMobListener(), this)
     }
 
     override fun onDisable() {

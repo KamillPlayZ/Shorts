@@ -58,7 +58,7 @@ class TreeGrowListener : Listener {
             Material.DARK_OAK_SAPLING -> TreeType.DARK_OAK
             Material.MANGROVE_PROPAGULE -> TreeType.MANGROVE
             Material.CHERRY_SAPLING -> TreeType.CHERRY
-            else -> TreeType.TREE // Default to oak
+            else -> TreeType.TREE
         }
     }
 }
