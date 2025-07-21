@@ -45,6 +45,8 @@ class Shorts : JavaPlugin() {
         if (config.isLichen) Bukkit.getPluginManager().registerEvents(LichenListener(), this)
         if (config.isPoisonedSleep) Bukkit.getPluginManager().registerEvents(PoisonedSleepListener(), this)
         if (config.isRandomMob) Bukkit.getPluginManager().registerEvents(RandomMobListener(), this)
+
+        if (config.isSugarCane) SugarCaneListener()
     }
 
     override fun onDisable() {

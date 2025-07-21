@@ -20,6 +20,11 @@ public class ConfigJson {
     private boolean lichen = true;
     private boolean poisonedSleep = true;
     private boolean randomMob = true;
+    private boolean sugarCane = true;
+
+    public boolean isSugarCane() {
+        return sugarCane;
+    }
 
     public boolean isRandomMob() {
         return randomMob;
