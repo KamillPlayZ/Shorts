@@ -21,6 +21,16 @@ public class ConfigJson {
     private boolean poisonedSleep = true;
     private boolean randomMob = true;
     private boolean sugarCane = true;
+    private boolean melonGrower = true;
+    private boolean oneChunk = true;
+
+    public boolean isOneChunk() {
+        return oneChunk;
+    }
+
+    public boolean isMelonGrower() {
+        return melonGrower;
+    }
 
     public boolean isSugarCane() {
         return sugarCane;

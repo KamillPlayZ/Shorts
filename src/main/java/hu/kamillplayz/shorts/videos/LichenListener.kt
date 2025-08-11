@@ -11,6 +11,6 @@ class LichenListener : Listener {
     fun onBreak(event: BlockBreakEvent) {
         if (event.block.type != Material.GLOW_LICHEN) return
 
-        event.block.world.dropItem(event.block.location, Material.DIAMOND.asItemStack)
+        event.block.world.dropItem(event.block.location, Material.DIAMOND.asItemStack())
     }
 }

@@ -1,5 +1,7 @@
 package hu.kamillplayz.shorts
 
+import com.comphenix.protocol.ProtocolLibrary
+import com.comphenix.protocol.ProtocolManager
 import hu.kamillplayz.shorts.data.ConfigJson
 import hu.kamillplayz.shorts.utils.JsonLoader
 import hu.kamillplayz.shorts.videos.*
@@ -19,12 +21,15 @@ class Shorts : JavaPlugin() {
     }
 
     private lateinit var config: ConfigJson
+    lateinit var protocolManager: ProtocolManager
 
     init {
         instance = this
     }
 
     override fun onEnable() {
+        protocolManager = ProtocolLibrary.getProtocolManager()
+
         config = JsonLoader.loadOrDefault(dataFolder, "config.json", ConfigJson::class.java)
 
         if (config.isDiamondStrip) Bukkit.getPluginManager().registerEvents(DiamondStripListener(), this)
@@ -45,8 +50,10 @@ class Shorts : JavaPlugin() {
         if (config.isLichen) Bukkit.getPluginManager().registerEvents(LichenListener(), this)
         if (config.isPoisonedSleep) Bukkit.getPluginManager().registerEvents(PoisonedSleepListener(), this)
         if (config.isRandomMob) Bukkit.getPluginManager().registerEvents(RandomMobListener(), this)
+        if (config.isOneChunk) Bukkit.getPluginManager().registerEvents(OneChunkListener(), this)
 
         if (config.isSugarCane) SugarCaneListener()
+        if (config.isMelonGrower) MelonGrower()
     }
 
     override fun onDisable() {

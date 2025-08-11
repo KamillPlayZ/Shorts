@@ -8,8 +8,9 @@ import org.bukkit.event.Listener
 import org.bukkit.event.entity.EntityDeathEvent
 import org.bukkit.inventory.ItemStack
 
-val Material.asItemStack: ItemStack
-    get() = ItemStack(this)
+fun Material.asItemStack(): ItemStack {
+    return ItemStack(this)
+}
 
 class MobEggListener : Listener {
 
@@ -22,13 +23,13 @@ class MobEggListener : Listener {
         val itemType = killer.inventory.itemInMainHand.type
 
         if (itemType == Material.FEATHER && entityType == EntityType.CHICKEN) {
-            event.drops.add(Material.CHICKEN_SPAWN_EGG.asItemStack)
+            event.drops.add(Material.CHICKEN_SPAWN_EGG.asItemStack())
         } else if (itemType == Material.ROTTEN_FLESH && entityType == EntityType.ZOMBIE) {
-            event.drops.add(Material.ZOMBIE_SPAWN_EGG.asItemStack)
+            event.drops.add(Material.ZOMBIE_SPAWN_EGG.asItemStack())
         } else if (itemType == Material.GOLD_NUGGET && entityType == EntityType.ZOMBIFIED_PIGLIN) {
-            event.drops.add(Material.ZOMBIFIED_PIGLIN_SPAWN_EGG.asItemStack)
+            event.drops.add(Material.ZOMBIFIED_PIGLIN_SPAWN_EGG.asItemStack())
         } else if (itemType == Material.POTION && entityType == EntityType.ENDER_DRAGON) {
-            event.drops.add(Material.ENDER_DRAGON_SPAWN_EGG.asItemStack)
+            event.drops.add(Material.ENDER_DRAGON_SPAWN_EGG.asItemStack())
         }
     }
 }
