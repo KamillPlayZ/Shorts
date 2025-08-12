@@ -15,6 +15,13 @@ class OneChunkListener : Listener {
 
         for (x in -16..16) {
             for (z in -16..16) {
+                if (x == 0 && z == 0) {
+                    for (drop in block.drops) {
+                        world.dropItem(block.location, drop)
+                    }
+                    return
+                }
+
                 val location = block.location.clone().add(x * 16.0, 0.0, z * 16.0)
 
                 world.getBlockAt(location).setType(Material.AIR)
@@ -29,6 +36,8 @@ class OneChunkListener : Listener {
 
         for (x in -16..16) {
             for (z in -16..16) {
+                if (x == 0 && z == 0) continue
+
                 val location = block.location.clone().add(x * 16.0, 0.0, z * 16.0)
 
                 world.getBlockAt(location).setType(block.type)
