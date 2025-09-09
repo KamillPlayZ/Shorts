@@ -17,15 +17,8 @@ class EnchantCombineListener : Listener {
         val firstItem = inventory.firstItem
         val secondItem = inventory.secondItem
 
-        var validItem = false
-        for (type in validItems) {
-            if (firstItem!!.type.name.contains(type) && secondItem!!.type == firstItem.type) {
-                validItem = true
-                break
-            }
-        }
-
-        if (!validItem) return
+        val isValidItem = validItems.any { firstItem!!.type.name.contains(it) && secondItem!!.type == firstItem.type }
+        if (!isValidItem) return
 
         val allEnchants = firstItem!!.enchantments.toMutableMap()
         for (enchant in secondItem!!.enchantments.keys) {
