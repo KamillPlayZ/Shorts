@@ -23,6 +23,11 @@ public class ConfigJson {
     private boolean sugarCane = true;
     private boolean melonGrower = true;
     private boolean oneChunk = true;
+    private boolean enchantCombine = true;
+
+    public boolean isEnchantCombine() {
+        return enchantCombine;
+    }
 
     public boolean isOneChunk() {
         return oneChunk;

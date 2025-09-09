@@ -51,6 +51,7 @@ class Shorts : JavaPlugin() {
         if (config.isPoisonedSleep) Bukkit.getPluginManager().registerEvents(PoisonedSleepListener(), this)
         if (config.isRandomMob) Bukkit.getPluginManager().registerEvents(RandomMobListener(), this)
         if (config.isOneChunk) Bukkit.getPluginManager().registerEvents(OneChunkListener(), this)
+        if (config.isEnchantCombine) Bukkit.getPluginManager().registerEvents(EnchantCombineListener(), this)
 
         if (config.isSugarCane) SugarCaneListener()
         if (config.isMelonGrower) MelonGrower()
