@@ -7,7 +7,7 @@ import kotlin.math.max
 
 class EnchantCombineListener : Listener {
 
-    val validItems: List<String> = listOf("_HELMET", "_CHESTPLATE", "_LEGGINGS", "_BOOTS", "_SWORD", "_AXE", "_PICKAXE", "_SHOVEL", "_HOE", "_BOW", "_CROSSBOW")
+    private val validItems: List<String> = listOf("_HELMET", "_CHESTPLATE", "_LEGGINGS", "_BOOTS", "_SWORD", "_AXE", "_PICKAXE", "_SHOVEL", "_HOE", "_BOW", "_CROSSBOW")
 
     @EventHandler
     fun onAnvilCombine(event: PrepareAnvilEvent) {

@@ -52,9 +52,11 @@ class Shorts : JavaPlugin() {
         if (config.isRandomMob) Bukkit.getPluginManager().registerEvents(RandomMobListener(), this)
         if (config.isOneChunk) Bukkit.getPluginManager().registerEvents(OneChunkListener(), this)
         if (config.isEnchantCombine) Bukkit.getPluginManager().registerEvents(EnchantCombineListener(), this)
+        if (config.isPowderedSnowDoor) Bukkit.getPluginManager().registerEvents(PowderedSnowDoorListener(), this)
 
         if (config.isSugarCane) SugarCaneListener()
         if (config.isMelonGrower) MelonGrower()
+
     }
 
     override fun onDisable() {

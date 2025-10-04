@@ -24,6 +24,11 @@ public class ConfigJson {
     private boolean melonGrower = true;
     private boolean oneChunk = true;
     private boolean enchantCombine = true;
+    private boolean powderedSnowDoor = true;
+
+    public boolean isPowderedSnowDoor() {
+        return powderedSnowDoor;
+    }
 
     public boolean isEnchantCombine() {
         return enchantCombine;
