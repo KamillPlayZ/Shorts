@@ -56,6 +56,7 @@ class Shorts : JavaPlugin() {
 
         if (config.isSugarCane) SugarCaneListener()
         if (config.isMelonGrower) MelonGrower()
+        if (config.isLeavesWorldCreator) LeavesWorldCreator()
 
     }
 

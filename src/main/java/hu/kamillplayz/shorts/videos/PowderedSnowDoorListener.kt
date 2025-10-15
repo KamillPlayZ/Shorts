@@ -52,7 +52,7 @@ class PowderedSnowDoorListener : Listener {
         bottomBlock.blockData = bottomData
         topBlock.blockData = topData
 
-        player.playSound(clickedBlock.location, Sound.BLOCK_WOOD_PLACE, 1f, 1f)
+        player.playSound(clickedBlock.location, Sound.BLOCK_WOOD_PLACE, 0.5f, 0.8f)
         player.inventory.itemInMainHand.amount--
     }
 

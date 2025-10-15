@@ -25,6 +25,11 @@ public class ConfigJson {
     private boolean oneChunk = true;
     private boolean enchantCombine = true;
     private boolean powderedSnowDoor = true;
+    private boolean leavesWorldCreator = true;
+
+    public boolean isLeavesWorldCreator() {
+        return leavesWorldCreator;
+    }
 
     public boolean isPowderedSnowDoor() {
         return powderedSnowDoor;
